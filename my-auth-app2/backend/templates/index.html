@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Object Detection and Tracking on The Drone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #output {
+            margin: 20px auto;
+            max-width: 600px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #output p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Real-Time Object Detection and Tracking on The Drone</h1>
+    <button onclick="executeScript('C:/Users/sathish/Desktop/final_year_project/myapp/my-auth-app2/backend/basic.py')">Initialize</button>
+    <button onclick="executeScript('C:/Users/sathish/Desktop/final_year_project/myapp/my-auth-app2/backend/capture.py')">Face Tracking</button>
+    <div id="output"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+    <script>
+        const socket = io.connect('http://localhost:5000');
+
+        socket.on('output', function(data) {
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML += '<p>' + data + '</p>';
+        });
+
+        function executeScript(scriptName) {
+            socket.emit('run_script', { script: scriptName });
+        }
+    </script>
+</body>
+
+</html>

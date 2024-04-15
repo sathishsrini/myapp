@@ -1,0 +1,127 @@
+/* Page background */
+body {
+    margin: 0; /* Remove default margin */
+    padding: 50px; /* Remove default padding */
+    height: 100vh; /* Make sure the body covers the whole viewport */
+    background-image: url('./bg2.jpg'); /* Path to your image */
+    background-position: center center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-attachment: fixed; /* Optional: Fixes the background image during scroll */
+    background-size: cover; /* This is what makes the image cover the entire screen */
+}
+  /* Container with glass effect */
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 290px;
+    height: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white for glass effect */
+    backdrop-filter: blur(10px); /* Blur effect for the background */
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Light border for a more defined edge */
+    animation: fadeIn 1s forwards;
+    opacity: 0;
+  }
+  
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Header styles */
+  /* Header style */
+  .header {
+    position: relative;
+    display: inline-block; /* Or 'block' depending on your layout */
+    font-size: 24px;
+    color: #ffffff;
+    text-decoration: none; /* Remove if it's not a link */
+  }
+  
+  /* Underline effect */
+  .header::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px; /* Thickness of the underline */
+    bottom: 0px; /* Distance from the bottom of the text */
+    left: 50%;
+    background-color: rgb(250, 247, 252); /* Color of the underline */
+    transition: width 0.3s ease, left 0.3s ease; /* Smooth transition for the underline */
+  }
+  
+  /* Animation on hover */
+  .header:hover::after {
+    width: 100%; /* Full width of the text */
+    left: 0; /* Start from the left edge */
+  }
+  
+  /* Form styles */
+  form {
+    width: 100%;
+  }
+  form .input-icon-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  form img{
+    width: 15px;
+    height: 15px;
+  }
+  form input[type="email"], form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1); /* Light background for inputs */
+    color: #fff; /* White text color */
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+  }
+  
+  form input[type="email"]:focus, form input[type="password"]:focus {
+    border-color: #ffffff; /* Change to match the theme */
+    outline: none;
+  }
+  
+  form button {
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    font-size: 19px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    transition: all 0.5s;
+    color: #020202;
+  }
+  
+  form button:hover {
+    border-radius: 10px solid #ffffff;
+      background-color: #244791;
+      color: #fff;
+      opacity: 1;
+      cursor: pointer;
+  }
+  form .log button{
+    
+    width: 50%;
+
+  }
+  /* Enhancing inputs hover effect */
+  form input[type="email"]:hover, form input[type="password"]:hover {
+    border-color: #9751ec; /* Adjusts border color on hover */
+  }
+  
